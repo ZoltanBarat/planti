@@ -7,7 +7,7 @@ function isInViewport(element) {
     return (
         rect.bottom >= 0 &&
         rect.left >= 0 &&
-        rect.top <= (window.innerHeight || document.documentElement.clientHeight)-180 &&
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight)-170 &&
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 };
@@ -21,20 +21,7 @@ document.addEventListener('scroll', function () {
     } else {
         classModifier(effectDivsOdd);
         classModifier(effectDivsEven);
-    }
-    
-    
-/*     effectDiv.forEach(element => {        
-        if (isInViewport(element)) {              
-            element.classList.add('--cardAnimation')
-        } 
-       
-        if (!isInViewport(element)) {         
-            element.classList.remove('--cardAnimation')
-            
-        } 
-    });    */
-
+    }   
 });
     
 
