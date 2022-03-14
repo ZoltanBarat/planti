@@ -47,7 +47,7 @@ h2 {
 
 .heroContainer {
     height: 100vh;
-    max-height: 100vh;
+    min-height: min-content;
 
     display: flex;
     flex-direction: column;
@@ -112,19 +112,20 @@ h2 {
     margin-bottom: 3%;
 }
 
-.badge {
-    height: 60px;
-    width: auto;
+
+.badge__img {
+    width: 230px;
+    height: 68px;
     transition: 0.2s;
 }
 
-.badge:hover {
+.badge__img:hover {
     transform: scale(0.9);
 }
 
 .badge:nth-child(1){
     margin-right: 30px;
-}
+} 
 
 .hero__textContainer__stores {
     display: flex;
@@ -318,7 +319,7 @@ h2 {
     font-weight: bold;
 }
 
-.cardAnim {
+.cardAnimOdd, .cardAnimEven {
     opacity: 0;
     transition: 1.5s;
     transform: scale(0.5);
@@ -405,9 +406,9 @@ h2 {
         border-radius: 0px 0px 24px 24px;
     }
 
-    .badge {
-        height: 50px;
-        width: auto;
+    .badge__img {
+        width: 153px;
+        height: 45px;
     }
 
     .hero__textContainer__stores {
@@ -421,4 +422,9 @@ h2 {
     .hero {
         margin-top: 20px;
     }
+
+    .heroContainer {
+        height: auto;      
+    }
+
 }

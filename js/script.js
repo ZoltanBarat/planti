@@ -1,12 +1,8 @@
-
-const effectDiv = document.querySelectorAll('.cardAnim');
+const effectDivsOdd = document.querySelectorAll('.cardAnimOdd');
+const effectDivsEven = document.querySelectorAll('.cardAnimEven');
 
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
-/*     
-    console.log(document.documentElement.clientHeight)
-    console.log(window.innerHeight)
-    console.log(rect.bottom) */
 
     return (
         rect.bottom >= 0 &&
@@ -18,9 +14,18 @@ function isInViewport(element) {
 
 document.addEventListener('scroll', function () {
 
-    effectDiv.forEach(element => {        
-        if (isInViewport(element)) {  
-            
+    
+    if (window.innerWidth > 700) {
+        classModifier(effectDivsOdd);
+        setTimeout(() => classModifier(effectDivsEven), 700);
+    } else {
+        classModifier(effectDivsOdd);
+        classModifier(effectDivsEven);
+    }
+    
+    
+/*     effectDiv.forEach(element => {        
+        if (isInViewport(element)) {              
             element.classList.add('--cardAnimation')
         } 
        
@@ -28,10 +33,22 @@ document.addEventListener('scroll', function () {
             element.classList.remove('--cardAnimation')
             
         } 
-    });
+    });    */
 
-   
 });
     
+
+function classModifier(elements) {
+    elements.forEach(element => {
+        if (isInViewport(element)) {
+            element.classList.add('--cardAnimation')
+        }
+   
+        if (!isInViewport(element)) {
+            element.classList.remove('--cardAnimation')
+        
+        }
+    })
+}
     
 
